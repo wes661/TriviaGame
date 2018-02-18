@@ -1,6 +1,6 @@
 var triviaGame = {
 	questions: [
-	{
+		{
 				question1: 'Who holds the record for most touchdown passes?',
 				answers: [
 				{
@@ -19,8 +19,9 @@ var triviaGame = {
 					d: 'Dan Marino',
 					correct: false
 				}
-			],
-
+			]
+		},
+		{		
 				question2: 'Which team has appeared in the most superbowls?',
 				answers: [
 				{
@@ -43,4 +44,4 @@ var triviaGame = {
 		}
 	]
 }
-console.log(triviaGame.questions)
+console.log(triviaGame.questions[1])
