@@ -2,18 +2,30 @@
 	width: 100%;
 	border: 2px solid black;
 	border-radius: 50px;
-	height: 300px;
+	display: none;
 	
 }
 #questionTitle{
-	
+	font-size: 25px;
 }
 
 #timer{
-
+	border: 1px solid black;
+	border-radius: 100%;
+	padding: 5px;
+	font-size: 30px;
 }
 
 #answerSpot{
 	text-align: left;
-	padding-left: 25px;
+	padding-left: 35px;
+	padding-bottom: 20px;
+	font-size: 20px;
+
+
+}
+
+.btn-info{
+	width: 20%;
+	font-size: 20px;
 }

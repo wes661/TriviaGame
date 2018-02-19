@@ -1,3 +1,4 @@
+//Object for game
 var triviaGame = {
 	questions: [
 		{
@@ -106,16 +107,42 @@ var triviaGame = {
 			]
 		},
 	],
+//Game starts with this function. Displayes question, timer and answers	
 	gameStart: function(){
+		$('.btn-info').on('click', function(){
+			$('.questionBox').slideDown('slow');
+			$('.btn-info').slideUp('slow');
+			var intervalId;
+			var number = 15;
+			function run() {
+	      clearInterval(intervalId);
+	      intervalId = setInterval(decrement, 1000);
+    	}
+    	function decrement() {
+
+	      number--;
+
+	      $("#timer").html(number);
+
+	      if (number === 0) {
+
+	        stop();
+      }
+    }
+
+    	function stop() {
+
+      clearInterval(intervalId);
+    }
+    run();
+
+		});
 		this.randQuestion = this.questions[Math.floor(Math.random() * this.questions.length)];
 		$('#questionTitle').append(this.randQuestion.question + '<br>' + '<br>');
 		$('#answerSpot').append(this.randQuestion.answers[0].a + '<br>' + '<br>');
 		$('#answerSpot').append(this.randQuestion.answers[1].b + '<br>' + '<br>');
 		$('#answerSpot').append(this.randQuestion.answers[2].c + '<br>' + '<br>');
 		$('#answerSpot').append(this.randQuestion.answers[3].d);
-		
-		
 	}
 };
 triviaGame.gameStart();
-console.log(triviaGame.randQuestion.answers[0].a);
