@@ -1,3 +1,5 @@
+$('.jtron').slideDown(1800);
+
 //Object for game
 var triviaGame = {
 	questions: [
@@ -112,6 +114,7 @@ var triviaGame = {
 		$('.btn-info').on('click', function(){
 			$('.questionBox').slideDown('slow');
 			$('.btn-info').slideUp('slow');
+			//Timer function			
 			var intervalId;
 			var number = 15;
 			function run() {
@@ -136,6 +139,8 @@ var triviaGame = {
     }
     run();
 
+
+		//Random question select and display to html
 		});
 		this.randQuestion = this.questions[Math.floor(Math.random() * this.questions.length)];
 		$('#questionTitle').append(this.randQuestion.question + '<br>' + '<br>');
