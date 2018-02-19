@@ -4,19 +4,19 @@ var triviaGame = {
 				question: 'Who holds the record for most touchdown passes?',
 				answers: [
 				{
-					a: 'Tom Brady',
+					a: 'A: Tom Brady',
 					correct: false
 				},
 				{
-					b: 'Joe Montana',
+					b: 'B: Joe Montana',
 					correct: false
 				},
 				{
-					c: 'Peyton Manning',
+					c: 'C: Peyton Manning',
 					correct: true
 				},
 				{
-					d: 'Dan Marino',
+					d: 'D: Dan Marino',
 					correct: false
 				}
 			]
@@ -25,19 +25,19 @@ var triviaGame = {
 				question: 'Which team has appeared in the most Superbowls?',
 				answers: [
 				{
-					a: 'The New England Patriots',
+					a: 'A: The New England Patriots',
 					correct: true
 				},
 				{
-					b: 'The Sanfransisco 49ers',
+					b: 'B: The Sanfransisco 49ers',
 					correct: false
 				},
 				{
-					c: 'The Dallas Cowboys',
+					c: 'C: The Dallas Cowboys',
 					correct: false
 				},
 				{
-					d: 'The Pittsburgh Steelers',
+					d: 'D: The Pittsburgh Steelers',
 					correct: false
 				}
 			]
@@ -46,19 +46,19 @@ var triviaGame = {
 				question: 'Who holds the record for most rushing yards in a season?',
 				answers: [
 				{
-					a: 'Adrian Peterson',
+					a: 'A: Adrian Peterson',
 					correct: false
 				},
 				{
-					b: 'Barry Sanders',
+					b: 'B: Barry Sanders',
 					correct: false
 				},
 				{
-					c: 'Eric Dickerson',
+					c: 'C: Eric Dickerson',
 					correct: true
 				},
 				{
-					d: 'Chris Johnson',
+					d: 'D: Chris Johnson',
 					correct: false
 				}
 			]
@@ -67,19 +67,19 @@ var triviaGame = {
 				question: 'How many teams have never been to the Superbowl?',
 				answers: [
 				{
-					a: '6',
+					a: 'A: 6',
 					correct: false
 				},
 				{
-					b: '4',
+					b: 'B: 4',
 					correct: true
 				},
 				{
-					c: '8',
+					c: 'C: 8',
 					correct: false
 				},
 				{
-					d: '3',
+					d: 'D: 3',
 					correct: false
 				}
 			]
@@ -88,19 +88,19 @@ var triviaGame = {
 				question: 'Who played in the first Superbowl?',
 				answers: [
 				{
-					a: 'Green Bay Packers vs Oakland Raiders',
+					a: 'A: Green Bay Packers vs Oakland Raiders',
 					correct: false
 				},
 				{
-					b: 'Dallas Cowboys vs Miami Dolphins',
+					b: 'B: Dallas Cowboys vs Miami Dolphins',
 					correct: false
 				},
 				{
-					c: 'New York Jets vs Baltimore Colts',
+					c: 'C: New York Jets vs Baltimore Colts',
 					correct: false
 				},
 				{
-					d: 'Green Bay Packers vs Kansas City Chiefs',
+					d: 'D: Green Bay Packers vs Kansas City Chiefs',
 					correct: true
 				}
 			]
@@ -108,11 +108,14 @@ var triviaGame = {
 	],
 	gameStart: function(){
 		this.randQuestion = this.questions[Math.floor(Math.random() * this.questions.length)];
-		$('.questionBox').text(this.randQuestion.question);
-		$('.questionBox').text(this.randQuestion.question);
+		$('#questionTitle').append(this.randQuestion.question + '<br>' + '<br>');
+		$('#answerSpot').append(this.randQuestion.answers[0].a + '<br>' + '<br>');
+		$('#answerSpot').append(this.randQuestion.answers[1].b + '<br>' + '<br>');
+		$('#answerSpot').append(this.randQuestion.answers[2].c + '<br>' + '<br>');
+		$('#answerSpot').append(this.randQuestion.answers[3].d);
+		
 		
 	}
 };
 triviaGame.gameStart();
-console.log(triviaGame.randQuestion.question.answers);
-//alert(triviaGame.randQuestion);
+console.log(triviaGame.randQuestion.answers[0].a);
