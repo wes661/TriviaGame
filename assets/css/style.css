@@ -16,7 +16,7 @@
 	font-size: 30px;
 }
 
-#answerSpot{
+#answerSpotA, #answerSpotB, #answerSpotC, #answerSpotD{
 	text-align: left;
 	padding-left: 35px;
 	padding-bottom: 20px;
