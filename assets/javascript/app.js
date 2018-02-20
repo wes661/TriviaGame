@@ -186,22 +186,21 @@ var triviaGame = {
 		});
 		this.randQuestion = this.questions[Math.floor(Math.random() * this.questions.length)];
 		$('#questionTitle').append(this.randQuestion.question + '<br>' + '<br>');
-		$('#answerSpotA').append(this.randQuestion.answers[0].a + '<br>' + '<br>');
-		$('#answerSpotB').append(this.randQuestion.answers[1].b + '<br>' + '<br>');
-		$('#answerSpotC').append(this.randQuestion.answers[2].c + '<br>' + '<br>');
+		$('#answerSpotA').append(this.randQuestion.answers[0].a);
+		$('#answerSpotB').append(this.randQuestion.answers[1].b);
+		$('#answerSpotC').append(this.randQuestion.answers[2].c);
 		$('#answerSpotD').append(this.randQuestion.answers[3].d);
+		console.log(this.randQuestion.answers[0].correct);
 
 		function selectAnswer(){
-			for(var i = 0; i < questions.length; i++ ){
-				answers[i].click(function(){
-					alert('selected');
-					console.log(answers);
-				})
-			}
+			$('.answers').on('click', function(){
+				console.log(this);
+					
+				
+			})
 		}
 		selectAnswer();
 	},
 };
 triviaGame.gameStart();
-
-console.log(triviaGame);
+//console.log(triviaGame);
