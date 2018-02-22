@@ -7,19 +7,19 @@ var triviaGame = {
 				question: 'Who holds the record for most touchdown passes?',
 				answers: [
 				{
-					a: 'A: Tom Brady',
+					text: 'A: Tom Brady',
 					correct: false
 				},
 				{
-					b: 'B: Joe Montana',
+					text: 'B: Joe Montana',
 					correct: false
 				},
 				{
-					c: 'C: Peyton Manning',
+					text: 'C: Peyton Manning',
 					correct: true
 				},
 				{
-					d: 'D: Dan Marino',
+					text: 'D: Dan Marino',
 					correct: false
 				}
 			]
@@ -28,19 +28,19 @@ var triviaGame = {
 				question: 'Which team has appeared in the most Superbowls?',
 				answers: [
 				{
-					a: 'A: The New England Patriots',
+					text: 'A: The New England Patriots',
 					correct: true
 				},
 				{
-					b: 'B: The Sanfransisco 49ers',
+					text: 'B: The Sanfransisco 49ers',
 					correct: false
 				},
 				{
-					c: 'C: The Dallas Cowboys',
+					text: 'C: The Dallas Cowboys',
 					correct: false
 				},
 				{
-					d: 'D: The Pittsburgh Steelers',
+					text: 'D: The Pittsburgh Steelers',
 					correct: false
 				}
 			]
@@ -49,19 +49,19 @@ var triviaGame = {
 				question: 'Who holds the record for most rushing yards in a season?',
 				answers: [
 				{
-					a: 'A: Adrian Peterson',
+					text: 'A: Adrian Peterson',
 					correct: false
 				},
 				{
-					b: 'B: Barry Sanders',
+					text: 'B: Barry Sanders',
 					correct: false
 				},
 				{
-					c: 'C: Eric Dickerson',
+					text: 'C: Eric Dickerson',
 					correct: true
 				},
 				{
-					d: 'D: Chris Johnson',
+					text: 'D: Chris Johnson',
 					correct: false
 				}
 			]
@@ -70,19 +70,19 @@ var triviaGame = {
 				question: 'Which team has never been to the Superbowl?',
 				answers: [
 				{
-					a: 'A: Tampabay Buccaneers',
+					text: 'A: Tampabay Buccaneers',
 					correct: false
 				},
 				{
-					b: 'B: Clevland Browns',
+					text: 'B: Clevland Browns',
 					correct: true
 				},
 				{
-					c: 'C: Tennessee Titans',
+					text: 'C: Tennessee Titans',
 					correct: false
 				},
 				{
-					d: 'D: Arizona Cardinals',
+					text: 'D: Arizona Cardinals',
 					correct: false
 				}
 			]
@@ -91,19 +91,19 @@ var triviaGame = {
 				question: 'Who played in the first Superbowl?',
 				answers: [
 				{
-					a: 'A: Green Bay Packers vs Oakland Raiders',
+					text: 'A: Green Bay Packers vs Oakland Raiders',
 					correct: false
 				},
 				{
-					b: 'B: Dallas Cowboys vs Miami Dolphins',
+					text: 'B: Dallas Cowboys vs Miami Dolphins',
 					correct: false
 				},
 				{
-					c: 'C: New York Jets vs Baltimore Colts',
+					text: 'C: New York Jets vs Baltimore Colts',
 					correct: false
 				},
 				{
-					d: 'D: Green Bay Packers vs Kansas City Chiefs',
+					text: 'D: Green Bay Packers vs Kansas City Chiefs',
 					correct: true
 				}
 			]
@@ -112,19 +112,19 @@ var triviaGame = {
 				question: 'Who holds the record for most receiving yards',
 				answers: [
 				{
-					a: 'A: Jerry Rice',
+					text: 'A: Jerry Rice',
 					correct: true
 				},
 				{
-					b: 'B: Larry Fitzgerald',
+					text: 'B: Larry Fitzgerald',
 					correct: false
 				},
 				{
-					c: 'C: Tony Gonzalez',
+					text: 'C: Tony Gonzalez',
 					correct: false
 				},
 				{
-					d: 'D: Randy Moss',
+					text: 'D: Randy Moss',
 					correct: false
 				}
 			]
@@ -133,19 +133,19 @@ var triviaGame = {
 				question: 'How many NFL teams are there?',
 				answers: [
 				{
-					a: 'A: 30',
+					text: 'A: 30',
 					correct: false
 				},
 				{
-					b: 'B: 32',
+					text: 'B: 32',
 					correct: true
 				},
 				{
-					c: 'C: 28',
+					text: 'C: 28',
 					correct: false
 				},
 				{
-					d: 'D: 36',
+					text: 'D: 36',
 					correct: false
 				}
 			]
@@ -180,21 +180,41 @@ var triviaGame = {
       clearInterval(intervalId);
     }
     	run();
-
+    	questionSelect();
 
 		//Random question select and display to html
 		});
-		this.randQuestion = this.questions[Math.floor(Math.random() * this.questions.length)];
-		$('#questionTitle').append(this.randQuestion.question + '<br>' + '<br>');
-		$('#answerSpotA').append(this.randQuestion.answers[0].a);
-		$('#answerSpotB').append(this.randQuestion.answers[1].b);
-		$('#answerSpotC').append(this.randQuestion.answers[2].c);
-		$('#answerSpotD').append(this.randQuestion.answers[3].d);
-		console.log(this.randQuestion.answers[0].correct);
+		var that = this;
+		function questionSelect(){
+			that.randIndex = Math.floor(Math.random() * that.questions.length);
+			that.randQuestion = that.questions[that.randIndex];
+			$('#questionTitle').html(that.randQuestion.question + '<br>' + '<br>');
+			$('#answerSpotA').html(that.randQuestion.answers[0].text);
+			$('#answerSpotA').attr("correct", that.randQuestion.answers[0].correct);
+			$('#answerSpotB').html(that.randQuestion.answers[1].text);
+			$('#answerSpotB').attr("correct", that.randQuestion.answers[1].correct);
+			$('#answerSpotC').html(that.randQuestion.answers[2].text);
+			$('#answerSpotC').attr("correct", that.randQuestion.answers[2].correct);
+			$('#answerSpotD').html(that.randQuestion.answers[3].text);
+			$('#answerSpotD').attr("correct", that.randQuestion.answers[3].correct);
+		}
 
 		function selectAnswer(){
 			$('.answers').on('click', function(){
-				console.log(this);
+				console.log($(this).attr('correct'))
+				var val = $(this).attr('correct')
+				console.log(val);
+				if ( val == 'true'){
+					alert('correct');
+					triviaGame.questions.splice(triviaGame.randIndex,1);
+					questionSelect();
+				}
+				else{
+					alert('no')
+					triviaGame.questions.splice(triviaGame.randIndex,1);
+					questionSelect();
+				}
+			
 					
 				
 			})
