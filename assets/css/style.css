@@ -34,3 +34,8 @@
 .jtron{
 	display: none;
 }
+
+.scoreBoard{
+	width: 100%;
+	border: 2px solid black;
+}
