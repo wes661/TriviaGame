@@ -3,6 +3,7 @@
 	border: 2px solid black;
 	border-radius: 50px;
 	display: none;
+
 	
 }
 #questionTitle{
@@ -35,7 +36,23 @@
 	display: none;
 }
 
-.scoreBoard{
+.scoreWord{
+	display: none;
 	width: 100%;
-	border: 2px solid black;
+	font-size: 30px;
+
+}
+
+.scoreBoard{
+	display: none;
+	width: 100%;
+	border: 2px solid white;
+	background-color: black;
+	color: white;
+	font-size: 30px;
+	padding-bottom: 10px;
+}
+
+.correctText, .incorrectText, .timeupText{
+	display: none;
 }

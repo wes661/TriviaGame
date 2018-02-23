@@ -157,6 +157,8 @@ var triviaGame = {
 	gameStart: function(){
 		$('.btn-info').on('click', function(){
 			$('.questionBox').slideDown('slow');
+			$('.scoreWord').slideDown('slow');
+			$('.scoreBoard').slideDown('slow');
 			$('.btn-info').slideUp('slow');
 			//Timer function			
 			var intervalId;
@@ -172,7 +174,9 @@ var triviaGame = {
 
 	      if (number === 0) {
 	      	number = 18;
-	      	$('#timer').hide(100)
+	      	$('.questionBox').slideUp(100)
+	      	$('.timeupText').slideDown(1500);
+			$('.timeupText').slideUp(1500);
 	      	stop();
 	      	setTimeout(triviaGame.threeSeconds, 1000 * 3);
 	      	$("#timer").html(number);
@@ -212,16 +216,17 @@ var triviaGame = {
 		threeSeconds: function(){
 			triviaGame.questions.splice(triviaGame.randIndex,1);
 			triviaGame.questionSelect();
-			$('#timer').show(100);
+			$('.questionBox').slideDown(100);
 		},
 
 		selectAnswer: function(){
 			$('.answers').on('click', function(){
 				var val = $(this).attr('correct')
 				if ( val == 'true'){
-					alert('Correct!');
 					number = 18;
-	      			$('#timer').hide(100)
+	      			$('.questionBox').slideUp(100)
+	      			$('.correctText').slideDown(1500);
+					$('.correctText').slideUp(1500);
 	      			setTimeout(triviaGame.threeSeconds, 1000 * 3);
 	      			$("#timer").html(number);
 	      			score ++;
@@ -229,9 +234,10 @@ var triviaGame = {
 	        	}
 
 				else{
-					alert('Incorrect!');
 					number = 18;
-					$('#timer').hide(100)
+					$('.questionBox').slideUp(100);
+					$('.incorrectText').slideDown(1500);
+					$('.incorrectText').slideUp(1500);
 					setTimeout(triviaGame.threeSeconds, 1000 * 3);
 					$("#timer").html(number);
 				}
