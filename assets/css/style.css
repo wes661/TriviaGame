@@ -1,6 +1,14 @@
+body{
+	background-image: url("../images/nfl-logo.jpg");
+}
+
+
 .questionBox{
+	opacity: .7;
+	background-color: black;
+	color: white;
 	width: 100%;
-	border: 2px solid black;
+	border: 5px solid white;
 	border-radius: 50px;
 	display: none;
 
@@ -11,13 +19,14 @@
 }
 
 #timer{
-	border: 1px solid black;
+	border: 2px solid white;
 	border-radius: 100%;
 	padding: 5px;
 	font-size: 30px;
 }
 
 #answerSpotA, #answerSpotB, #answerSpotC, #answerSpotD{
+	cursor: pointer;
 	text-align: left;
 	padding-left: 35px;
 	padding-bottom: 20px;
@@ -32,11 +41,19 @@
 	font-size: 20px;
 }
 
-.jtron{
+.jumbotron{
+	border: 5px solid white;
+	color: white;
+	background-color: black;
 	display: none;
+	opacity: .7;
 }
 
 .scoreWord{
+	opacity: .7;
+	background-color: black;
+	border: 5px solid white;
+	color: white;
 	display: none;
 	width: 100%;
 	font-size: 30px;
@@ -44,9 +61,10 @@
 }
 
 .scoreBoard{
+	opacity: .7;
 	display: none;
 	width: 100%;
-	border: 2px solid white;
+	border: 5px solid white;
 	background-color: black;
 	color: white;
 	font-size: 30px;
@@ -54,5 +72,16 @@
 }
 
 .correctText, .incorrectText, .timeupText{
+	font-size: 55px;
 	display: none;
+	color: white;
+	opacity: .7;
+}
+
+#reults{
+	border: 5px solid white;
+	color: white;
+	background-color: black;
+	opacity: .7;
+	font-size: 30px;
 }
