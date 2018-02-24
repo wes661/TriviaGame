@@ -11,6 +11,7 @@ var triviaGame = {
 	questions: [
 		{
 				question: 'Who holds the record for most touchdown passes?',
+				correctChoice: 'Peyton Manning',
 				answers: [
 				{
 					text: 'A: Tom Brady',
@@ -32,6 +33,7 @@ var triviaGame = {
 		},
 		{		
 				question: 'Which team has appeared in the most Superbowls?',
+				correctChoice: 'The New England Patriots',
 				answers: [
 				{
 					text: 'A: The New England Patriots',
@@ -53,6 +55,7 @@ var triviaGame = {
 		},
 		{		
 				question: 'Who holds the record for most rushing yards in a season?',
+				correctChoice: 'Eric Dickerson',
 				answers: [
 				{
 					text: 'A: Adrian Peterson',
@@ -74,6 +77,7 @@ var triviaGame = {
 		},
 		{		
 				question: 'Which team has never been to the Superbowl?',
+				correctChoice: 'Clevland Browns',
 				answers: [
 				{
 					text: 'A: Tampabay Buccaneers',
@@ -95,6 +99,7 @@ var triviaGame = {
 		},
 		{		
 				question: 'Who played in the first Superbowl?',
+				correctChoice: 'Green Bay Packers vs Kansas City Chiefs',
 				answers: [
 				{
 					text: 'A: Green Bay Packers vs Oakland Raiders',
@@ -116,6 +121,7 @@ var triviaGame = {
 		},
 		{		
 				question: 'Who holds the record for most receiving yards',
+				correctChoice: 'Jerry Rice',
 				answers: [
 				{
 					text: 'A: Jerry Rice',
@@ -137,6 +143,7 @@ var triviaGame = {
 		},
 		{		
 				question: 'How many NFL teams are there?',
+				correctChoice: '32',
 				answers: [
 				{
 					text: 'A: 30',
@@ -152,6 +159,72 @@ var triviaGame = {
 				},
 				{
 					text: 'D: 36',
+					correct: false
+				}
+			]
+		},
+		{		
+				question: 'Which team was the only team to go undefeated?',
+				correctChoice: 'The Miami Dolphins',
+				answers: [
+				{
+					text: 'A: The Chicago Bears',
+					correct: false
+				},
+				{
+					text: 'B: The New England Patriots',
+					correct: false
+				},
+				{
+					text: 'C: The Denver Broncos',
+					correct: false
+				},
+				{
+					text: 'D: The Miami Dolphins',
+					correct: true
+				}
+			]
+		},
+		{		
+				question: 'What is mascot for Detroit?',
+				correctChoice: 'Lion',
+				answers: [
+				{
+					text: 'A: Tiger',
+					correct: false
+				},
+				{
+					text: 'B: Lion',
+					correct: true
+				},
+				{
+					text: 'C: Panther',
+					correct: false
+				},
+				{
+					text: 'D: Warrior',
+					correct: false
+				}
+			]
+		},
+		{		
+				question: 'Who does Russel Wilson play for?',
+				correctChoice: 'Seattle Seahawks',
+				answers: [
+				{
+					text: 'A: LA Chargers',
+					correct: false
+				},
+				{
+					text: 'B: Houston Texans',
+					correct: false
+				},
+				{
+					text: 'C: Seattle Seahawks',
+					correct: true
+				},
+				{
+					text: 'D: New Orleans Saints',
 					correct: false
 				}
 			]
@@ -182,15 +255,15 @@ var triviaGame = {
 	      if (number === 0) {
 	      	questionCount ++;
 	      	incorrectCount ++;
-	      	console.log(questionCount);
-	      	console.log(incorrectCount);
-	      	number = 18;
+	      	number = 20;
 	      	$('.questionBox').hide(100)
+	      	$('.resultText').html('Times Up!' + '<br>' + triviaGame.randQuestion.correctChoice);
+			$('.resultText').slideDown(1500);
+			$('.resultText').slideUp(3500);
 	      	stop();
-	      	setTimeout(triviaGame.threeSeconds, 1000 * 3);
+	      	setTimeout(triviaGame.fiveSeconds, 1000 * 5);
 	      	$("#timer").html(number);
 	      	run();
-	      	triviaGame.gameResult();
 	   		}
     	}
 
@@ -222,7 +295,7 @@ var triviaGame = {
 
 		
 	//Time out function between questions
-	threeSeconds: function(){
+	fiveSeconds: function(){
 		triviaGame.questions.splice(triviaGame.randIndex,1);
 		triviaGame.questionSelect();
 		$('.questionBox').slideDown(100);
@@ -234,41 +307,38 @@ var triviaGame = {
 			if ( val == 'true'){
 				questionCount ++;
 				correctCount ++;
-				number = 18;
-      			$('.questionBox').hide(100)
-      			$('.correctText').slideDown(1500);
-				$('.correctText').slideUp(1500);
-      			setTimeout(triviaGame.threeSeconds, 1000 * 3);
+				number = 20;
+      			$('.questionBox').hide(100);
+      			$('.resultText').html('Correct!');
+      			$('.resultText').slideDown(1500);
+				$('.resultText').slideUp(3500);
+      			setTimeout(triviaGame.fiveSeconds, 1000 * 5);
       			$("#timer").html(number);
       			score ++;
       			$('.scoreBoard').html('<center>' + '<h1>' + score + '</h1>' + '</center>');
-      			triviaGame.gameResult();
         	}
 
 			else{
 				questionCount ++;
 				incorrectCount ++;
-				console.log(incorrectCount);
-      			console.log(questionCount);
-				number = 18;
+				number = 20;
 				$('.questionBox').hide(100);
-				$('.incorrectText').slideDown(1500);
-				$('.incorrectText').slideUp(1500);
-				setTimeout(triviaGame.threeSeconds, 1000 * 3);
+				$('.resultText').html('Incorrect!' + '<br>' + triviaGame.randQuestion.correctChoice);
+				$('.resultText').slideDown(1500);
+				$('.resultText').slideUp(3500);
+				setTimeout(triviaGame.fiveSeconds, 1000 * 5);
 				$("#timer").html(number);
-				triviaGame.gameResult();
 			}
 		})
 	},
 
 	gameResult: function(){
 		if(questionCount === 7){
-			$('#results').text('Correct: ' + correctCount + '<br>');
-			$('#results').text('Incorrect: ' + incorrectCount);
+			$('#results').html('Correct: ' + correctCount + '<br>');
+			$('#results').html('Incorrect: ' + incorrectCount);
 		}
 	},
 };
 triviaGame.selectAnswer();	
 triviaGame.gameStart();
 
-//console.log(triviaGame);

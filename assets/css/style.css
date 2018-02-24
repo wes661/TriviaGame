@@ -71,12 +71,16 @@ body{
 	padding-bottom: 10px;
 }
 
-.correctText, .incorrectText, .timeupText{
-	font-size: 55px;
+.resultText{
+	background-color: black;
+	border: 5px solid white;
+	font-size: 40px;
 	display: none;
 	color: white;
 	opacity: .7;
+	width: 30%;
 }
+
 
 #reults{
 	border: 5px solid white;
