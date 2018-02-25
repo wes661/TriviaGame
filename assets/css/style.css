@@ -34,7 +34,11 @@ body{
 	
 }
 
-
+.btn-reset{
+	display: none;
+	width: 20%;
+	font-size: 20px;
+}
 
 .btn-info{
 	width: 20%;
@@ -82,10 +86,12 @@ body{
 }
 
 
-#reults{
+#gameResults{
+	display: none;
 	border: 5px solid white;
 	color: white;
 	background-color: black;
 	opacity: .7;
 	font-size: 30px;
+	width: 50%;
 }

@@ -186,7 +186,7 @@ var triviaGame = {
 			]
 		},
 		{		
-				question: 'What is mascot for Detroit?',
+				question: 'What is the mascot for Detroit?',
 				correctChoice: 'Lion',
 				answers: [
 				{
@@ -208,7 +208,7 @@ var triviaGame = {
 			]
 		},
 		{		
-				question: 'Who does Russel Wilson play for?',
+				question: 'Which team does Russel Wilson play for?',
 				correctChoice: 'Seattle Seahawks',
 				answers: [
 				{
@@ -256,6 +256,7 @@ var triviaGame = {
 	      	questionCount ++;
 	      	incorrectCount ++;
 	      	number = 20;
+	      	console.log(questionCount);
 	      	$('.questionBox').hide(100)
 	      	$('.resultText').html('Times Up!' + '<br>' + triviaGame.randQuestion.correctChoice);
 			$('.resultText').slideDown(1500);
@@ -264,6 +265,7 @@ var triviaGame = {
 	      	setTimeout(triviaGame.fiveSeconds, 1000 * 5);
 	      	$("#timer").html(number);
 	      	run();
+	      	triviaGame.gameResult();
 	   		}
     	}
 
@@ -308,6 +310,7 @@ var triviaGame = {
 				questionCount ++;
 				correctCount ++;
 				number = 20;
+				console.log(questionCount);
       			$('.questionBox').hide(100);
       			$('.resultText').html('Correct!');
       			$('.resultText').slideDown(1500);
@@ -316,26 +319,33 @@ var triviaGame = {
       			$("#timer").html(number);
       			score ++;
       			$('.scoreBoard').html('<center>' + '<h1>' + score + '</h1>' + '</center>');
+      			triviaGame.gameResult();
         	}
 
 			else{
 				questionCount ++;
 				incorrectCount ++;
 				number = 20;
+				console.log(questionCount);
 				$('.questionBox').hide(100);
 				$('.resultText').html('Incorrect!' + '<br>' + triviaGame.randQuestion.correctChoice);
 				$('.resultText').slideDown(1500);
 				$('.resultText').slideUp(3500);
 				setTimeout(triviaGame.fiveSeconds, 1000 * 5);
 				$("#timer").html(number);
+				triviaGame.gameResult();
 			}
 		})
 	},
 
 	gameResult: function(){
-		if(questionCount === 7){
-			$('#results').html('Correct: ' + correctCount + '<br>');
-			$('#results').html('Incorrect: ' + incorrectCount);
+		if(questionCount === 11){
+			$('#gameResults').html('Correct: ' + correctCount + '<br>' + '<br>' + 'Incorrect: ' + incorrectCount );
+			$('#gameResults').slideDown(5000);
+			$('.btn-reset').slideDown(5000);
+
+
+			
 		}
 	},
 };
