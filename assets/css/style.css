@@ -1,5 +1,8 @@
 body{
 	background-image: url("../images/nfl-logo.jpg");
+	background-repeat:no-repeat;
+   	background-attachment:fixed;
+   	background-position:center; 
 }
 
 
